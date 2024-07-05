@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>incode :: About Readability</title>
+	<title>incode.cc :: About Readability</title>
 	<meta name="description" content="A visual interactive guide to readability on the web">
 	<meta name="author" content="Fabian 'ff6347' Morón Zirfas">
 	<meta name="keywords" content="readability, typography, web design, css">
@@ -33,15 +33,96 @@
 		To make this more readable, we need to consider the following rules.
 
 	<ol>
+		<li>Choose a line length that allows the eye to find the next line.</li>
+		<li>Create space around the text to keep it in focus.</li>
 		<li>Choose a typeface that is easy to read.</li>
 		<li>Choose a comfortable text size and tracking.</li>
-		<li>Choose a line length that allows the eye to find the next line easily</li>
-		<li>Choose a line height sets a good vertical rhythm.</li>
-		<li>Create space around the text to keep it in focus.</li>
-		<li>Other small tweaks</li>
+		<li>Choose a line height that sets a good vertical rhythm.</li>
+		<li>Other small tweaks mainly color and distinction.</li>
 	</ol>
 
 	</p>
+	<h3>Line Length</h3>
+
+	<input type="checkbox" id="line-length">
+	<label for="line-length">Line Length (max-width)</label>
+
+	<p>
+		The line length in the default formatting is not constrained. Therefor we get as many words as possible per line. In
+		the English language the recommended character per line length is between <code>45</code> and <code>75</code>. This
+		is a rule of thumb. It depends on the typeface, the font size, the leading the distance to the screen/book/poster.
+		The length I used here might also be better suited to a desktop then a handheld device. Even the language the
+		document is in might make a difference. My native language German with its long words might need some more space. So
+		experiment with this value a little to get the right amount for your publication. Use the &ldquo;Line Length&rdquo;
+		checkbox to see the difference between the default line length and the line length I applied to this page. I used
+		the <code>max-width</code> property to set the line length. This way the line length is not fixed but constrained to
+		a maximum value. I used the <code>ch</code> unit here. This unit is also based on the font size. It is the width of
+		the zero character of the element's font.
+	<pre id="line-length-code" class="hidden">
+  <code>
+p {
+  max-width: 65ch;
+}
+pre {
+  white-space: pre-wrap;
+}
+  </code>
+</pre>
+	</p>
+
+
+	<h3>Outside Space</h3>
+
+
+	<input type="checkbox" id="margin">
+	<label for="margin">Outside Space (margin)</label>
+
+	<p>
+		The setting for the line length helps already to create some space in our document but it is not distributed
+		equally. Isn&rsquo;t it awful how the text sticks to the left border of your screen? I feel the urge to balance this out, I hope you do so as well. The space around the text should be equal on both sides please. To do so I use the <code>margin</code> property. For a
+		document like this one it is enough to set a equal margin for the body on the left and right side. For more complex
+		layouts I suggest to reach for such marvelous tools like <a
+			href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">Flexbox</a> <a
+			href="#footnote-1"><sup>1</sup></a> or the <a
+			href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids">Grid</a>. Here we set the
+		<code>margin</code> on the body to value <code>0 auto</code>. Which means that on the top and the bottom the margin
+		is 0 and on the left and right side the margin is automatically calculated to be equal. Use the &ldquo;Outside
+		Space&rdquo; checkbox to see the difference between the default margin and the margin I applied to this page.
+	<pre id="margin-code" class="hidden">
+<code >
+body {
+  margin: 0 auto;
+}
+</code>
+</pre>
+	</p>
+
+	<h3>Inside Space</h3>
+
+	<input type="checkbox" id="padding">
+	<label for="padding">Inside Space (padding)</label>
+
+	<p>
+		If you are reading this on a narrow screen you will see the text sticking to both edges of the screen. You might think: &ldquo;Yuk. Your line length and margin did not fix the readability problem. It made it worse!&rdquo; Stick with me. We want to make this work on all kinds of screens. On a wide screen it already got better. So this one is for specially for you. To create some more space around the text we can use the <code>padding</code> property.  This property creates space inside the
+		element. I used the <code>padding</code> property to create space around the text. I set the <code>padding</code> on
+		the body to a value of <code>1rem</code>. This way the text is not directly on the edge of the screen. I also give
+		the <code>&lt;pre&gt;</code> tag some padding on the left and right side to make it differ from the rest of text.
+		Use the
+		&ldquo;Inside Space&rdquo; checkbox to see the difference between the default padding and the padding I applied to
+		this page.
+
+	</p>
+	<pre id="padding-code" class="hidden">
+  <code>
+body, h1, h2, h3 {
+  padding: 0.5rem;
+}
+pre {
+  padding: 0 1rem;
+}
+  </code>
+</pre>
+
 	<h3>Typeface</h3>
 
 	<input type="checkbox" id="font-family">
@@ -84,14 +165,15 @@ code {
 		unit, read <a href="https://css-tricks.com/theres-more-to-the-css-rem-unit-than-font-sizing/">Chris Coyier&rsquo;s
 			article</a> on CSS-Tricks. To adjust the size of the code elements I also applied a different font-size to the
 		<code>&lt;code&gt;</code> tag. This makes the height of the monospace characters match the size of the body text.
-		This needs to be matched visually. It depends on the typefaces. The <code>font-weight</code> property is set to
-		<code>normal</code> to make the text look like a whole. This is the default value but I like to be explicit about
-		it.
+		This needs to be matched visually. It depends on the typefaces.
 	<pre id="font-size-code" class="hidden">
 <code>
 html {
   font-size: 18px;
   letter-spacing: 0.01rem;
+}
+code {
+  font-size: 0.89rem;
 }
 </code>
 </pre>
@@ -107,92 +189,19 @@ html {
 		What means vertical rhythm? In the default formatting the lines are to close together. This makes it hard to find
 		the next line. The line height should be set to a value that makes it easy to find the next line. Use the
 		&ldquo;Vertical Rhythm&rdquo; checkbox to see the difference between the default line height and the line height I
-		applied to this page I think creates a better readability. Rule of thumb is <code>1.5</code> times the font size. As
+		applied to this page. I think creates a better readability. Rule of thumb is <code>1.5</code> times the font size. As
 		you can see I use a value without a unit. Unit-less values use this number multiplied by the element's font size.
+
 	<pre id="line-height-code" class="hidden">
-<code >
+<code>
 body {
-  line-height: 1.55;
+  line-height: 1.5;
 }
 </code>
 </pre>
 	</p>
 
-	<h3>Line Length</h3>
 
-	<input type="checkbox" id="line-length">
-	<label for="line-length">Line Length (max-width)</label>
-
-	<p>
-		The line length in the default formatting is not constrained. Therefor we get as many words as possible per line. In
-		the English language the recommended character per line length is between <code>45</code> and <code>75</code>. This
-		is a rule of thumb. It depends on the typeface, the font size, the leading the distance to the screen/book/poster.
-		The length I used here might also be better suited to a desktop then a handheld device. Even the language the
-		document is on might make a difference. My native language German with its long words might need some more space. So
-		experiment with this value a little to get the right amount for your publication. Use the &ldquo;Line Length&rdquo;
-		checkbox to see the difference between the default line length and the line length I applied to this page. I used
-		the <code>max-width</code> property to set the line length. This way the line length is not fixed but constrained to
-		a maximum value. I used the <code>ch</code> unit here. This unit is also based on the font size. It is the width of
-		the zero character of the element's font.
-	<pre id="line-length-code" class="hidden">
-	<code >
-p {
-  max-width: 65ch;
-}
-	</code>
-</pre>
-	</p>
-	<h3>Outside Space</h3>
-
-
-	<input type="checkbox" id="margin">
-	<label for="margin">Outside Space (margin)</label>
-
-	<p>
-		The setting for the line length helps already to create some space in our document but it is not distributed
-		equally. The text around the text should be equal on both sides. Here I use the <code>margin</code> property. For a
-		document like this one it is enough to set a equal margin for the body on the left and right side. For more complex
-		layouts I suggest to reach for such marvelous tools like <a
-			href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">Flexbox</a> <a
-			href="#footnote-1"><sup>1</sup></a> or the <a
-			href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids">Grid</a>. Here we set the
-		<code>margin</code> on the body to value <code>0 auto</code>. Which means that on the top and the bottom the margin
-		is 0 and on the left and right side the margin is automatically calculated to be equal. Use the &ldquo;Outside
-		Space&rdquo; checkbox to see the difference between the default margin and the margin I applied to this page.
-	<pre id="margin-code" class="hidden">
-<code >
-body {
-  margin: 0 auto;
-}
-</code>
-</pre>
-	</p>
-
-	<h3>Inside Space</h3>
-
-	<input type="checkbox" id="padding">
-	<label for="padding">Inside Space (padding)</label>
-
-	<p>
-		To create space around the text we can use the <code>padding</code> property. This property creates space inside the
-		element. I used the <code>padding</code> property to create space around the text. I set the <code>padding</code> on
-		the body to a value of <code>1rem</code>. This way the text is not directly on the edge of the screen. I also give
-		the <code>&lt;pre&gt;</code> tag some padding on the left and right side to make it differ from the rest of text.
-		Use the
-		&ldquo;Inside Space&rdquo; checkbox to see the difference between the default padding and the padding I applied to
-		this page.
-
-	</p>
-	<pre id="padding-code" class="hidden">
-	<code>
-body, h1, h2, h3 {
-  padding: 0.5rem;
-}
-pre {
-  padding: 0 1rem;
-}
-	</code>
-</pre>
 
 	<h3>Small Tweaks</h3>
 
@@ -205,10 +214,13 @@ pre {
 		can make your text even more readable. I set the <code>color</code> property to a value of <code>#403f53</code>.
 		This is a dark grey color. This way the text is not black but still easy to read. I set the
 		<code>background-color</code> property to a value of <code>#fbfbfb</code>. This is a light grey color. This way the
-		text is not directly on the white background. I also used a gradient as background color for the code elements and a dashed border on the left to make them stand out a little more. Last I changed the appearance of the <code>&lt;hr&gt;</code> tag to be dashed as well. To make my colors reusable I set them as custom properties on the <code>:root</code> element.
-		 Use the &ldquo;Small
+		text is not directly on the white background. I also used a gradient as background color for the code elements and a
+		dashed border on the left to make them stand out a little more. Last I changed the appearance of the
+		<code>&lt;hr&gt;</code> tag to be dashed as well. To make my colors reusable I set them as custom properties on the
+		<code>:root</code> element.
+		Use the &ldquo;Small
 		Tweaks&rdquo; checkbox to see the difference between the default text and the text I applied to this page.
-<pre id="small-tweaks-code" class="hidden">
+	<pre id="small-tweaks-code" class="hidden">
 <code>
 :root {
   --body-bg: #fbfbfb;
@@ -242,7 +254,83 @@ hr {
 
 	<h3>Conclusion</h3>
 	<p>
-		These small changes make a big difference in readability. The content is easier to grasp. Of course all these changes only work good together and depend on each other. Just a last note. If you take a look at the source code you will not see the same structure as described in this document. To allow you to toggle the different settings I used JavaScript to apply classes to the elements. Above I show a how you apply the CSS directly to the HTML tags.
+		These small changes make a big difference in readability. The content is easier to grasp. Of course all these
+		changes only work good together and depend on each other. Just a last note. If you take a look at the source code
+		you will not see the same structure as described in this document. To allow you to toggle the different settings I
+		used JavaScript to apply classes to the elements. Above I show a how you apply the CSS directly to the HTML tags.
+	</p>
+	<h3>TL;DR</h3>
+	<p>
+		Check all the boxes (Hint: visit the site with the url search param <code>?checked=true</code>), grab the full and condensed CSS and start building your  own project!
+	<pre id="full-code" class="hidden">
+<code>
+:root {
+  --body-bg: #fbfbfb;
+  --text-color: #403f53;
+  --link-color: #0077cc;
+  --link-hover-color: #004466;
+  --link-visited-color: #440099;
+  --link-visited-hover-color: #220066;
+  --border-color: #282828;
+  --code-bg: #f6f6f6;
+  --code-color: #403f53;
+  --code-border-color: #282828;
+}
+
+html {
+  font-size: 18px;
+  letter-spacing: 0.01rem;
+}
+body {
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-weight: normal;
+  line-height: 1.5;
+  margin: 0 auto;
+  color: var(--text-color);
+  background-color: var(--body-bg);
+}
+body,
+h1,
+h2,
+h3 {
+  padding: 0.5rem;
+}
+code {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
+  font-weight: normal;
+  font-size: 0.89rem;
+}
+p {
+  max-width: 65ch;
+}
+pre {
+  padding: 0 1rem;
+  white-space: pre-wrap;
+  color: var(--code-color);
+  background: linear-gradient(to left, var(--code-bg), var(--body-bg));
+  border-left: 1px dashed var(--code-border-color);
+}
+hr {
+  border: 0;
+  border-top: 1px dashed var(--border-color);
+  margin: 1rem 0;
+}
+a {
+  color: var(--link-color);
+}
+a:hover {
+  color: var(--link-hover-color);
+}
+a:visited {
+  color: var(--link-visited-color);
+}
+a:visited:hover {
+  color: var(--link-visited-hover-color);
+}
+
+  </code>
+</pre>
 	</p>
 	<hr>
 	<div class="footnotes">
