@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>incode :: About Readability</title>
+	<meta name="description" content="A visual interactive guide to readability on the web">
+	<meta name="author" content="Fabian 'ff6347' Morón Zirfas">
+	<meta name="keywords" content="readability, typography, web design, css">
+	<meta name="robots" content="index, follow">
+	<meta name="revisit-after" content="7 days">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<h1>About Readability on the Web</h1>
+	<h2>An Interactive Guide (to hit The Floor Running)</h2>
+	<p><em>Disclaimer: I'm not a (Micro-)Typographer. I did my share of print, editorial and web development to have a
+			sense about what works and what not. I looked a Gestalt theory to know some things about the law of proximity and
+			others, but in any circumstance I would call myself a master of the trade. I remember just enough to make my pages
+			look okay(&mdash;ish). This document is based on several resources from around the web but mainly inspired from a
+			talk <a href="https://www.youtube.com/watch?v=YM2Nj691PMo">&ldquo;Good Typography, Better Apps&rdquo; by Frank
+				Rausch @ UIKonf</a> and the <a href="https://jgthms.com/web-design-in-4-minutes/">&ldquo;Web Design in 4
+				Minutes&rdquo; site by Jeremy Thomas</a></em>
+	</p>
+	<p>
+
+		What you see here is, if the checkboxes are not checked, is not unformatted text. It is badly formatted text. The
+		narrower your screen is the better it gets but better is not good.
+		To make this more readable, we need to consider the following rules.
+
+	<ol>
+		<li>Choose a typeface that is easy to read.</li>
+		<li>Choose a comfortable text size and tracking.</li>
+		<li>Choose a line length that allows the eye to find the next line easily</li>
+		<li>Choose a line height sets a good vertical rhythm.</li>
+		<li>Create space around the text to keep it in focus.</li>
+		<li>Other small tweaks</li>
+	</ol>
+
+	</p>
+	<h3>Typeface</h3>
+
+	<input type="checkbox" id="font-family">
+	<label for="font-family">Typeface (font-family)</label>
+
+	<p>For the first rule we have plenty of possibilities at hand. <a href="https://fonts.google.com/">Google Fonts</a>
+		for example provides many typefaces. Way to much in my humble opinion. I also like to not rely on external resources
+		for the first draft. To get started without having to think to much about it, I tend to go to <a
+			href="https://modernfontstacks.com/">Modern Font Stacks</a>. These are typefaces that exists on modern computers.
+		This means for us we don&rsquo;t need to download a font, place it in the right directory, ship it with our markup
+		or load it from a content delivery network (CDN). We can just start writing code. Use the &ldquo;Typeface&rdquo;
+		checkbox to see the difference between the default font and the font I chose for this page.
+
+	<pre id="font-family-code" class="hidden"><code>
+
+body {
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-weight: normal;
+}
+code {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, DejaVu Sans Mono', monospace;
+  font-weight: normal;
+}
+</code>
+</pre>
+	</p>
+	<h3>Text Size</h3>
+
+	<input type="checkbox" id="font-size">
+	<label for="font-size">Text Size (font-size)</label>
+
+
+	<p>For the second rule we have to consider the text size and tracking. The text size should be big enough to read but
+		not to big to make the reader feel like a child. The tracking should be tight enough to make the text look like a
+		whole but not to tight to make it hard to read. Use the &ldquo;Text Size&rdquo; checkbox to see the difference
+		between the default text size and the text size I applied to this page. To get a consistent font size I tend to use
+		the <code>rem</code> unit. This way I can change the font size for the whole page by changing the
+		<code>font-size</code> property of the <code>html</code> element. The tracking is altered by setting the
+		<code>letter-spacing</code> to <code>0.01rem</code> for the body text. To learn more about the <code>rem</code>
+		unit, read <a href="https://css-tricks.com/theres-more-to-the-css-rem-unit-than-font-sizing/">Chris Coyier&rsquo;s
+			article</a> on CSS-Tricks. To adjust the size of the code elements I also applied a different font-size to the
+		<code>&lt;code&gt;</code> tag. This makes the height of the monospace characters match the size of the body text.
+		This needs to be matched visually. It depends on the typefaces. The <code>font-weight</code> property is set to
+		<code>normal</code> to make the text look like a whole. This is the default value but I like to be explicit about
+		it.
+	<pre id="font-size-code" class="hidden">
+<code>
+html {
+  font-size: 18px;
+  letter-spacing: 0.01rem;
+}
+</code>
+</pre>
+	</p>
+
+	<h3>Vertical Rhythm</h3>
+
+
+	<input type="checkbox" id="line-height">
+	<label for="line-height">Vertical Rhythm (line-height)</label>
+
+	<p>
+		What means vertical rhythm? In the default formatting the lines are to close together. This makes it hard to find
+		the next line. The line height should be set to a value that makes it easy to find the next line. Use the
+		&ldquo;Vertical Rhythm&rdquo; checkbox to see the difference between the default line height and the line height I
+		applied to this page I think creates a better readability. Rule of thumb is <code>1.5</code> times the font size. As
+		you can see I use a value without a unit. Unit-less values use this number multiplied by the element's font size.
+	<pre id="line-height-code" class="hidden">
+<code >
+body {
+  line-height: 1.55;
+}
+</code>
+</pre>
+	</p>
+
+	<h3>Line Length</h3>
+
+	<input type="checkbox" id="line-length">
+	<label for="line-length">Line Length (max-width)</label>
+
+	<p>
+		The line length in the default formatting is not constrained. Therefor we get as many words as possible per line. In
+		the English language the recommended character per line length is between <code>45</code> and <code>75</code>. This
+		is a rule of thumb. It depends on the typeface, the font size, the leading the distance to the screen/book/poster.
+		The length I used here might also be better suited to a desktop then a handheld device. Even the language the
+		document is on might make a difference. My native language German with its long words might need some more space. So
+		experiment with this value a little to get the right amount for your publication. Use the &ldquo;Line Length&rdquo;
+		checkbox to see the difference between the default line length and the line length I applied to this page. I used
+		the <code>max-width</code> property to set the line length. This way the line length is not fixed but constrained to
+		a maximum value. I used the <code>ch</code> unit here. This unit is also based on the font size. It is the width of
+		the zero character of the element's font.
+	<pre id="line-length-code" class="hidden">
+	<code >
+p {
+  max-width: 65ch;
+}
+	</code>
+</pre>
+	</p>
+	<h3>Outside Space</h3>
+
+
+	<input type="checkbox" id="margin">
+	<label for="margin">Outside Space (margin)</label>
+
+	<p>
+		The setting for the line length helps already to create some space in our document but it is not distributed
+		equally. The text around the text should be equal on both sides. Here I use the <code>margin</code> property. For a
+		document like this one it is enough to set a equal margin for the body on the left and right side. For more complex
+		layouts I suggest to reach for such marvelous tools like <a
+			href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">Flexbox</a> <a
+			href="#footnote-1"><sup>1</sup></a> or the <a
+			href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids">Grid</a>. Here we set the
+		<code>margin</code> on the body to value <code>0 auto</code>. Which means that on the top and the bottom the margin
+		is 0 and on the left and right side the margin is automatically calculated to be equal. Use the &ldquo;Outside
+		Space&rdquo; checkbox to see the difference between the default margin and the margin I applied to this page.
+	<pre id="margin-code" class="hidden">
+<code >
+body {
+  margin: 0 auto;
+}
+</code>
+</pre>
+	</p>
+
+	<h3>Inside Space</h3>
+
+	<input type="checkbox" id="padding">
+	<label for="padding">Inside Space (padding)</label>
+
+	<p>
+		To create space around the text we can use the <code>padding</code> property. This property creates space inside the
+		element. I used the <code>padding</code> property to create space around the text. I set the <code>padding</code> on
+		the body to a value of <code>1rem</code>. This way the text is not directly on the edge of the screen. I also give
+		the <code>&lt;pre&gt;</code> tag some padding on the left and right side to make it differ from the rest of text.
+		Use the
+		&ldquo;Inside Space&rdquo; checkbox to see the difference between the default padding and the padding I applied to
+		this page.
+
+	</p>
+	<pre id="padding-code" class="hidden">
+	<code>
+body, h1, h2, h3 {
+  padding: 0.5rem;
+}
+pre {
+  padding: 0 1rem;
+}
+	</code>
+</pre>
+
+	<h3>Small Tweaks</h3>
+
+	<input type="checkbox" id="small-tweaks">
+	<label for="small-tweaks">Small Tweaks</label>
+
+
+	<p>
+		The above changes already make a big difference in the readability of the text. But there are some small tweaks that
+		can make your text even more readable. I set the <code>color</code> property to a value of <code>#403f53</code>.
+		This is a dark grey color. This way the text is not black but still easy to read. I set the
+		<code>background-color</code> property to a value of <code>#fbfbfb</code>. This is a light grey color. This way the
+		text is not directly on the white background. I also used a gradient as background color for the code elements and a dashed border on the left to make them stand out a little more. Last I changed the appearance of the <code>&lt;hr&gt;</code> tag to be dashed as well. To make my colors reusable I set them as custom properties on the <code>:root</code> element.
+		 Use the &ldquo;Small
+		Tweaks&rdquo; checkbox to see the difference between the default text and the text I applied to this page.
+<pre id="small-tweaks-code" class="hidden">
+<code>
+:root {
+  --body-bg: #fbfbfb;
+  --text-color: #403f53;
+  --link-color: #0077cc;
+  --link-hover-color: #004466;
+  --link-visited-color: #440099;
+  --link-visited-hover-color: #220066;
+  --border-color: #282828;
+  --code-bg: #f6f6f6;
+  --code-color: #403f53;
+  --code-border-color: #282828;
+}
+body {
+  color: var(--text-color);
+  background-color: var(--body-bg);
+}
+pre {
+  color: var(--code-color);
+  background: linear-gradient(to left, var(--code-bg), var(--body-bg));
+  border-left: 1px dashed var(--code-border-color);
+}
+hr {
+  border: 0;
+  border-top: 1px dashed var(--border-color);
+  margin: 1rem 0;
+}
+</code>
+</pre>
+	</p>
+
+	<h3>Conclusion</h3>
+	<p>
+		These small changes make a big difference in readability. The content is easier to grasp. Of course all these changes only work good together and depend on each other. Just a last note. If you take a look at the source code you will not see the same structure as described in this document. To allow you to toggle the different settings I used JavaScript to apply classes to the elements. Above I show a how you apply the CSS directly to the HTML tags.
+	</p>
+	<hr>
+	<div class="footnotes">
+		<p id="footnote-1">
+			<sup>1</sup> <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Guide to Flexbox</a>
+		</p>
+	</div>
+
+	<script type="module" src="index.js"></script>
+</body>
+
+</html>
