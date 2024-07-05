@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (urlSearchParams.has('checked')) {
     const checked = urlSearchParams.get('checked');
     if (checked === 'true') {
+      document.getElementById('full-code').classList.remove('hidden');
       document
         .querySelectorAll('input[type="checkbox"]')
         .forEach((checkbox) => {
@@ -59,6 +60,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
   }
+  // Select all checkboxes
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  // Function to check if all checkboxes are checked
+  function checkCheckboxes() {
+    const allChecked = Array.from(checkboxes).every(
+      (checkbox) => checkbox.checked,
+    );
+    const fullCodeElement = document.getElementById('full-code');
+
+    // Toggle the .hidden class based on whether all checkboxes are checked
+    if (allChecked) {
+      fullCodeElement.classList.remove('hidden');
+    } else {
+      fullCodeElement.classList.add('hidden');
+    }
+  }
+
+  // Add change event listener to each checkbox
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', checkCheckboxes);
+  });
 });
 function fontFamilyHandler(checked) {
   if (checked) {
@@ -110,10 +133,10 @@ function lineLengthHandler(checked) {
 function lineHeightHandler(checked) {
   if (checked) {
     document.body.classList.add('line-height');
-    document.getElementById('line-length-code').classList.remove('hidden');
+    document.getElementById('line-height-code').classList.remove('hidden');
   } else {
     document.body.classList.remove('line-height');
-    document.getElementById('line-length-code').classList.add('hidden');
+    document.getElementById('line-height-code').classList.add('hidden');
   }
 }
 
