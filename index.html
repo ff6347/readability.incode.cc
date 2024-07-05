@@ -51,13 +51,13 @@
 		The line length in the default formatting is not constrained. Therefor we get as many words as possible per line. In
 		the English language the recommended character per line length is between <code>45</code> and <code>75</code>. This
 		is a rule of thumb. It depends on the typeface, the font size, the leading the distance to the screen/book/poster.
-		The length I used here might also be better suited to a desktop then a handheld device. Even the language the
-		document is in might make a difference. My native language German with its long words might need some more space. So
+		The length I will use here might also be better suited to a desktop then a handheld device. Even the language the
+		document is in might make a difference. My native language German, with its long words, the text might need some more space. So
 		experiment with this value a little to get the right amount for your publication. Use the &ldquo;Line Length&rdquo;
-		checkbox to see the difference between the default line length and the line length I applied to this page. I used
-		the <code>max-width</code> property to set the line length. This way the line length is not fixed but constrained to
-		a maximum value. I used the <code>ch</code> unit here. This unit is also based on the font size. It is the width of
-		the zero character of the element's font.
+		checkbox to see the difference between the default line length and the line length I applied to this page. This also will show the used code below this paragraph. I used
+		the <code>max-width</code> property to set the width of the text container. This way the line length is not fixed but constrained to
+		a maximum width of it&lsquo;s containing element, the <code>&lt;p&gt;</code> tag. I used the <code>ch</code> unit here. This unit is  based on the font size. It is the width of
+		the zero character of the element's font. If you are reading this on a small screen you might not see a difference. Try to make the window wider to see the effect. For example by tilting &#x21b7; your device into landscape mode.
 	<pre id="line-length-code" class="hidden">
   <code>
 p {
@@ -83,7 +83,7 @@ pre {
 		document like this one it is enough to set a equal margin for the body on the left and right side. For more complex
 		layouts I suggest to reach for such marvelous tools like <a
 			href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">Flexbox</a> <a
-			href="#footnote-1"><sup>1</sup></a> or the <a
+			href="#footnote-1"><sup id="footnote-1-source">1</sup></a> or the <a
 			href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids">Grid</a>. Here we set the
 		<code>margin</code> on the body to value <code>0 auto</code>. Which means that on the top and the bottom the margin
 		is 0 and on the left and right side the margin is automatically calculated to be equal. Use the &ldquo;Outside
@@ -335,7 +335,7 @@ a:visited:hover {
 	<hr>
 	<div class="footnotes">
 		<p id="footnote-1">
-			<sup>1</sup> <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Guide to Flexbox</a>
+			<a href="#footnote-1-source"><sup>1</sup></a> <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Guide to Flexbox</a>
 		</p>
 	</div>
 
