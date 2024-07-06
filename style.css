@@ -71,3 +71,28 @@
   border-top: 1px dashed var(--border-color);
   margin: 1rem 0;
 }
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    color: black;
+    transform: scale(1);
+  }
+  25% {
+    color: #444; /* Dark grey */
+    transform: scale(1.15);
+  }
+  50% {
+    color: #222; /* Darker grey */
+    transform: scale(1.1);
+  }
+  75% {
+    color: #444; /* Dark grey */
+    transform: scale(1.15);
+  }
+}
+
+.heartbeat {
+  display: inline-block;
+  animation: heartbeat 1.5s infinite;
+}
