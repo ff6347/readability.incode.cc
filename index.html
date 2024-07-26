@@ -50,7 +50,7 @@
 		<p>
 			The line length in the default formatting is not constrained. Therefore, we get as many words as possible per line. In the English language, the recommended character per line length is between <code>45</code> and <code>75</code>. This is a rule of thumb. It depends on the typeface, the font size, the leading, and the distance to the screen/book/poster. The length I will use here might also be better suited to a desktop than a handheld device. Even the language the document is in might make a difference. In my native language German, with its long words, the text might need some more space. So experiment with this value a little to get the right amount for your publication. Use the &ldquo;Line Length&rdquo; checkbox to see the difference between the default line length and the line length I applied to this page. This will also show the used code below this paragraph. I used the <code>max-width</code> property to set the width of the text container. This way, the line length is not fixed but constrained to a maximum width of its containing element, the <code>&lt;p&gt;</code> tag. I used the <code>ch</code> unit here. This unit is based on the font size. It is the width of the zero character of the element's font. If you are reading this on a small screen, you might not see a difference. Try to make the window wider to see the effect, for example by tilting &#x21b7; your device into landscape mode.
 	</p>
-	<input type="checkbox" id="line-length">
+	<input type="checkbox" autocomplete="off" id="line-length">
 		<label for="line-length">Line Length (max-width)</label>
 	<pre id="line-length-code" class="hidden">
   <code>
@@ -70,7 +70,7 @@ pre {
     The setting for the line length already helps to create some space in our document, but it is not distributed equally. Isn&rsquo;t it awful how the text sticks to the left border of your screen? I feel the urge to balance this out, and I hope you do too. The space around the text should be equal on both sides. To do so, I use the <code>margin</code> property. For a document like this one, it is enough to set an equal margin for the body on the left and right sides. For more complex layouts, I suggest reaching for marvelous tools like <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">Flexbox</a> <a href="#footnote-1"><sup id="footnote-1-source">1</sup></a> or the <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids">Grid</a>. Here we set the <code>margin</code> on the body to the value <code>0 auto</code>, which means that on the top and bottom the margin is 0, and on the left and right sides the margin is automatically calculated to be equal. Use the &ldquo;Outside Space&rdquo; checkbox to see the difference between the default margin and the margin I applied to this page.
 </p>
 
-	<input type="checkbox" id="margin">
+	<input type="checkbox" autocomplete="off" id="margin">
 	<label for="margin">Outside Space (margin)</label>
 
 
@@ -97,12 +97,12 @@ body {
 
 	</p>
 
-  <input type="checkbox" id="padding">
+  <input type="checkbox" autocomplete="off" id="padding">
 	<label for="padding">Inside Space (padding)</label>
 
 	<pre id="padding-code" class="hidden">
   <code>
-body, h1, h2, h3 {
+body {
   padding: 0.5rem;
 }
 pre {
@@ -115,7 +115,7 @@ pre {
 
 	<p>For this rule, we have plenty of possibilities at hand. <a href="https://fonts.google.com/">Google Fonts</a>, for example, provides many typefaces, way too many in my humble opinion. I also prefer not to rely on external resources for the first draft. To get started without having to think too much about it, I tend to go to <a href="https://modernfontstacks.com/">Modern Font Stacks</a>. These are typefaces that exist on modern computers. This means we don&rsquo;t need to download a font, place it in the right directory, ship it with our markup, or load it from a content delivery network (CDN). We can just start writing code. Use the &ldquo;Typeface&rdquo; checkbox to see the difference between the default font and the font I chose for this page.</p>
 
-		<input type="checkbox" id="font-family">
+		<input type="checkbox" autocomplete="off" id="font-family">
 		<label for="font-family">Typeface (font-family)</label>
 
 	<pre id="font-family-code" class="hidden"><code>
@@ -136,7 +136,7 @@ code {
 	<p>Here we have to alter the text size and tracking. The text size should be big enough to read but not too big to make the reader feel like a child. The tracking should be tight enough to make the text look cohesive but not too tight to make it hard to read. Use the &ldquo;Text Size&rdquo; checkbox to see the difference between the default text size and the text size I applied to this page. To get a consistent font size, I tend to use the <code>rem</code> unit. This way, I can change the font size for the whole page by changing the <code>font-size</code> property of the <code>html</code> element. The tracking is altered by setting the <code>letter-spacing</code> to <code>0.01rem</code> for the body text. To learn more about the <code>rem</code> unit, read <a href="https://css-tricks.com/theres-more-to-the-css-rem-unit-than-font-sizing/">Chris Coyier&rsquo;s article</a> on CSS-Tricks. To adjust the size of the code elements, I also applied a different font size to the <code>&lt;code&gt;</code> tag. This makes the height of the monospace characters match the size of the body text. This needs to be matched visually, as it depends on the typefaces.</p>
 
 
-	<input type="checkbox" id="font-size">
+	<input type="checkbox" autocomplete="off" id="font-size">
 	<label for="font-size">Text Size (font-size)</label>
 
 	<pre id="font-size-code" class="hidden">
@@ -158,7 +158,7 @@ code {
     What does vertical rhythm mean? In the default formatting, the lines are too close together. This makes it hard to find the next line. The line height should be set to a value that makes it easy for the eye to find the beginning of the next line. A rule of thumb is <code>1.5</code> times the font size. As you can see, I use a value without a unit. Unitless values use this number multiplied by the element's font size. Use the &ldquo;Vertical Rhythm&rdquo; checkbox to see the difference between the default line height and the line height I applied to this page.
 </p>
 
-	<input type="checkbox" id="line-height">
+	<input type="checkbox" autocomplete="off" id="line-height">
 	<label for="line-height">Vertical Rhythm (line-height)</label>
 
 	<pre id="line-height-code" class="hidden">
@@ -179,7 +179,7 @@ body {
     Use the &ldquo;Small Tweaks&rdquo; checkbox to see the difference between the default text and the text I applied to this page.
 
 </p>
-	<input type="checkbox" id="small-tweaks">
+	<input type="checkbox" autocomplete="off" id="small-tweaks">
 	<label for="small-tweaks">Small Tweaks</label>
 
 
@@ -248,11 +248,6 @@ body {
   margin: 0 auto;
   color: var(--text-color);
   background-color: var(--body-bg);
-}
-body,
-h1,
-h2,
-h3 {
   padding: 0.5rem;
 }
 code {
