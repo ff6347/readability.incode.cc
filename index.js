@@ -158,7 +158,7 @@ function paddingHandler(checked) {
       element.classList.add('padding-pre');
     });
     document.getElementById('padding-code').classList.remove('hidden');
-    document.querySelectorAll('h1,h2,h3,input').forEach((element) => {
+    document.querySelectorAll('input,body').forEach((element) => {
       element.classList.add('padding');
     });
   } else {
@@ -168,7 +168,7 @@ function paddingHandler(checked) {
     });
 
     document.getElementById('padding-code').classList.add('hidden');
-    document.querySelectorAll('h1,h2,h3,input').forEach((element) => {
+    document.querySelectorAll('input,body').forEach((element) => {
       element.classList.remove('padding');
     });
   }
